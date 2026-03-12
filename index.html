@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>가뉴의 자취 일기</title>
+  <script type="module" crossorigin src="/ganuto/assets/index-BpHtnUQM.js"></script>
+  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-BSDOEQsp.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 캐릭터 선택 화면 -->
+    <div id="char-select" class="screen">
+      <h1>자운의 자취 일기</h1>
+      <p>강아지와 함께 살 더 좋은 집을 위해...<br>캐릭터를 선택해 주세요.</p>
+      <div class="char-options">
+        <div class="char-opt" onclick="startGame('male')">
+          <img src="/ganuto/assets/male_char.png" alt="남자 캐릭터">
+          <p>남자 자취생</p>
+        </div>
+        <div class="char-opt" onclick="startGame('female')">
+          <img src="/ganuto/assets/female_char.png" alt="여자 캐릭터">
+          <p>여자 자취생</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 메인 게임 화면 -->
+    <div id="game-screen" class="screen hidden">
+      <header>
+        <div class="stats">
+          <p><i class="pixel-icon icon-gold"></i> <span id="gold">0</span> G</p>
+          <p><i class="pixel-icon icon-home"></i> 장소: <span id="location">고시원</span></p>
+          <p><i class="pixel-icon icon-rocket"></i> 자동 수익: <span id="auto-rate">0</span> G/초</p>
+        </div>
+      </header>
+
+      <main class="game-area">
+        <div id="room-bg" class="room-bg">
+          <div class="wall"></div>
+          <div class="floor"></div>
+          <img id="player-sprite" src="" class="player-pixel">
+          <div class="dog-wrapper" id="dog-container">
+            <img id="dog-sprite" src="/ganuto/assets/dog_stand.png" class="dog-pixel">
+          </div>
+
+        </div>
+        <button id="tap-area" class="tap-btn">돈 벌기!</button>
+      </main>
+
+      <section class="menu">
+        <div class="menu-tabs">
+          <button onclick="showTab('upgrades')">알바/스킬</button>
+          <button onclick="showTab('shop')">상점</button>
+          <button onclick="showTab('housing')">이사하기</button>
+
+        </div>
+
+        <div id="upgrades" class="tab-content">
+          <div class="item">
+            <span id="click-power-text"><i class="pixel-icon icon-wrench"></i> 클릭 파워 (Lv.1)</span>
+            <button id="click-upgrade-btn" onclick="buyUpgrade('click')">가격: 10G</button>
+          </div>
+
+          <div class="item" id="passive-unlock-item">
+            <span><i class="pixel-icon icon-paw"></i> 강아지 산책 알바 (자동 수익 해금)</span>
+            <button onclick="buyUpgrade('passive', 100)">가격: 100G</button>
+          </div>
+          <div class="item passive-item hidden">
+            <span><i class="pixel-icon icon-box"></i> 쿠팡맨 고용 (자동 수익 +5원)</span>
+            <button onclick="buyUpgrade('auto', 500)">가격: 500G</button>
+          </div>
+        </div>
+
+        <div id="shop" class="tab-content hidden">
+          <div class="shop-categories">
+            <div class="category-item">
+              <p><i class="pixel-icon icon-chair"></i> 가구</p>
+              <span class="empty-msg">준비 중...</span>
+            </div>
+            <div class="category-item">
+              <p><i class="pixel-icon icon-bow"></i> 강아지용</p>
+              <span class="empty-msg">준비 중...</span>
+            </div>
+            <div class="category-item">
+              <p><i class="pixel-icon icon-cap"></i> 캐릭터용</p>
+              <span class="empty-msg">준비 중...</span>
+            </div>
+            <div class="category-item">
+              <p><i class="pixel-icon icon-theme"></i> UI 테마</p>
+              <span class="empty-msg">준비 중...</span>
+            </div>
+          </div>
+        </div>
+
+          <div class="item">
+            <span><i class="pixel-icon icon-house1"></i> 원룸으로 이사</span>
+            <button onclick="moveHouse(1, 2000)">가격: 2000G</button>
+          </div>
+          <div class="item">
+            <span>🏠 투룸으로 이사</span>
+            <button onclick="moveHouse(2, 10000)">가격: 10000G</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
