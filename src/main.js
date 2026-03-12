@@ -26,7 +26,9 @@ const clickUpgradeBtn = document.getElementById('click-upgrade-btn');
 /* 1. 게임 시작 (캐릭터 선택) */
 window.startGame = (gender) => {
   state.gender = gender;
-  playerSprite.src = gender === 'male' ? '/assets/male_char.png' : '/assets/female_char.png';
+  playerSprite.src = gender === 'male' 
+    ? import.meta.env.BASE_URL + 'assets/male_char.png' 
+    : import.meta.env.BASE_URL + 'assets/female_char.png';
   
   charSelectScreen.classList.add('hidden');
   gameScreen.classList.remove('hidden');
@@ -118,11 +120,11 @@ window.showTab = (tabId) => {
 const dogSprite = document.getElementById('dog-sprite');
 const dogContainer = document.getElementById('dog-container');
 const walkFrames = [
-  '/assets/dog_stand.png',
-  '/assets/dog_walk_1.png',
-  '/assets/dog_stand.png',
-  '/assets/dog_walk_2.png',
-  '/assets/dog_walk_3.png'
+  import.meta.env.BASE_URL + 'assets/dog_stand.png',
+  import.meta.env.BASE_URL + 'assets/dog_walk_1.png',
+  import.meta.env.BASE_URL + 'assets/dog_stand.png',
+  import.meta.env.BASE_URL + 'assets/dog_walk_2.png',
+  import.meta.env.BASE_URL + 'assets/dog_walk_3.png'
 ];
 let walkFrameIdx = 0;
 let dogState = 'walking'; // 'walking', 'standing', 'sitting'
@@ -146,9 +148,9 @@ function dogRoutine() {
     dogContainer.classList.add('sitting');
     
     if (dogState === 'sitting') {
-      dogSprite.src = '/assets/dog_sit.png';
+      dogSprite.src = import.meta.env.BASE_URL + 'assets/dog_sit.png';
     } else {
-      dogSprite.src = '/assets/dog_stand.png';
+      dogSprite.src = import.meta.env.BASE_URL + 'assets/dog_stand.png';
     }
     
     // 15초 후에 다시 걷기
