@@ -1,0 +1,317 @@
+@font-face {
+  font-family: 'RadioPen';
+  src: url('/fonts/radio.ttf') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  image-rendering: pixelated;
+}
+
+/* 픽셀 아이콘 스타일 */
+.pixel-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: pixelated;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* 각 개별 아이콘 파일 연결 */
+.icon-gold   { background-image: url('/assets/icons/icon_gold.png'); }
+.icon-home   { background-image: url('/assets/icons/icon_home.png'); }
+.icon-rocket { background-image: url('/assets/icons/icon_rocket.png'); }
+.icon-wrench { background-image: url('/assets/icons/icon_wrench.png'); }
+.icon-paw    { background-image: url('/assets/icons/icon_paw.png'); }
+.icon-box    { background-image: url('/assets/icons/icon_box.png'); }
+.icon-chair  { background-image: url('/assets/icons/icon_chair.png'); }
+.icon-bow    { background-image: url('/assets/icons/icon_bow.png'); }
+.icon-cap    { background-image: url('/assets/icons/icon_cap.png'); }
+.icon-theme  { background-image: url('/assets/icons/icon_theme.png'); }
+.icon-house1 { background-image: url('/assets/icons/icon_home.png'); }
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+  font-family: 'RadioPen', 'Courier New', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 800px;
+  background: #ffffff;
+  border: 6px solid #ffde59;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  text-align: center;
+}
+
+.hidden { display: none !important; }
+
+/* 캐릭터 선택 */
+.char-options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.char-opt {
+  cursor: pointer;
+  border: 2px solid #555;
+  padding: 10px;
+  transition: transform 0.1s;
+}
+
+.char-opt:hover {
+  transform: scale(1.1);
+  border-color: #ff6b6b;
+}
+
+.char-opt img {
+  height: 80px;
+  width: auto;
+}
+
+/* 메인 게임 영역 */
+header {
+  border-bottom: 3px solid #ffde59;
+  padding: 12px;
+  background: #fffbe6;
+}
+
+.stats p {
+  font-size: 1.1rem;
+  margin: 4px 0;
+  color: #594a00;
+  font-weight: bold;
+}
+
+.game-area {
+  flex: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-bg {
+  flex: 1;
+  border: 4px solid #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.room-bg.active {
+  transform: scale(0.98);
+}
+
+
+/* 낡은 고시원 벽지 */
+.wall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  background-color: #e8dfc5; /* 바랜 벽지 색상 */
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 80%),
+    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px;
+  box-shadow: inset 0 -40px 60px rgba(0,0,0,0.05);
+}
+
+/* 한국식 노란 장판 (Floor) */
+.floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background-color: #f3c473; /* 전형적인 장판 색 */
+  background-image: 
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 80px 100%, 100% 20px; /* 장판 이음새 느낌 */
+  border-top: 4px solid #8b5a2b; /* 걸레받이(Baseboard) */
+}
+
+.player-pixel {
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+  height: 130px;
+  width: auto;
+  transform: translateX(-50%);
+}
+
+.dog-wrapper {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  animation: wander 20s infinite ease-in-out, flip 20s infinite steps(1);
+  transition: bottom 0.3s, left 0.3s;
+}
+
+.dog-wrapper.sitting {
+  animation-play-state: paused;
+}
+
+
+.dog-pixel {
+  width: 55px;
+  height: auto;
+  transform-origin: bottom center;
+}
+
+
+@keyframes wander {
+  0%, 100% { left: 40%; bottom: 15%; }
+  25% { left: 70%; bottom: 18%; }
+  50% { left: 55%; bottom: 12%; }
+  75% { left: 30%; bottom: 20%; }
+}
+
+@keyframes flip {
+  0%, 100% { transform: scaleX(1); }
+  25% { transform: scaleX(1); }
+  25.1% { transform: scaleX(-1); }
+  50% { transform: scaleX(-1); }
+  75% { transform: scaleX(1); }
+}
+
+@keyframes waddle {
+  0%, 100% { transform: rotate(-5deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-3px); }
+}
+
+.tap-btn {
+  display: none; /* 이전 버튼 숨김 */
+  margin-top: 10px;
+
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 4px solid #c93d3d;
+}
+
+.tap-btn:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+/* 하단 메뉴 */
+.menu {
+  flex: 1;
+  border-top: 3px solid #ffde59;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+.menu-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #ffde59;
+}
+
+.menu-tabs button {
+  flex: 1;
+  padding: 12px;
+  cursor: pointer;
+  background: #fffbe6;
+  color: #594a00;
+  border: none;
+  font-family: inherit;
+  font-weight: bold;
+  border-right: 1px solid #ffde59;
+}
+
+.menu-tabs button:last-child { border-right: none; }
+
+.menu-tabs button:hover { background: #ffde59; }
+
+.tab-content .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 12px;
+  font-size: 0.9rem;
+}
+
+.item button {
+  background: #00ff88;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+
+.item button:disabled {
+  background: #777;
+  cursor: not-allowed;
+}
+
+/* 상점 스타일 */
+.shop-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.category-item {
+  background: #fffef0;
+  border: 2px solid #ffde59;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.category-item p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.empty-msg {
+  color: #888;
+  font-size: 0.8rem;
+  font-style: italic;
+}
