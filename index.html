@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>가뉴의 자취 일기</title>
-  <script type="module" crossorigin src="/ganuto/assets/index-DSWr7I4j.js"></script>
-  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-BDRDy0n-.css">
+  <script type="module" crossorigin src="/ganuto/assets/index-BS48WQtc.js"></script>
+  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-C4ROS_7V.css">
 </head>
 
 <body>
@@ -44,10 +44,12 @@
           <div class="floor"></div>
           <img id="player-sprite" src="" class="player-pixel">
           <div class="dog-wrapper" id="dog-container">
+            <!-- 강아지 선물 말풍선 -->
+            <div id="gift-bubble" class="gift-bubble hidden" onclick="claimGift(event)">
+              <div class="gift-icon-small"></div>
+            </div>
             <img id="dog-sprite" src="/ganuto/assets/dog_stand.png" class="dog-pixel">
           </div>
-          <!-- 선물 상자 -->
-          <div id="gift-box" class="gift-box hidden" onclick="claimGift()"></div>
 
         </div>
         <button id="tap-area" class="tap-btn">돈 벌기!</button>
@@ -57,7 +59,7 @@
         <div class="menu-tabs">
           <button onclick="showTab('upgrades')">알바/스킬</button>
           <button onclick="showTab('shop')">상점</button>
-          <button onclick="showTab('inventory')">인벤토리</button>
+          <button onclick="showTab('inventory')"><span class="pixel-icon icon-inventory"></span> 인벤토리</button>
           <button onclick="showTab('housing')">이사하기</button>
 
         </div>
