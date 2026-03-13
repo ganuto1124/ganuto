@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>가뉴의 자취 일기</title>
-  <script type="module" crossorigin src="/ganuto/assets/index-DL7mIejl.js"></script>
-  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-vsTgI0xH.css">
+  <script type="module" crossorigin src="/ganuto/assets/index-DMbKB5vF.js"></script>
+  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-B_jGwRcZ.css">
 </head>
 
 <body>
@@ -46,6 +46,7 @@
           <div class="dog-wrapper" id="dog-container">
             <!-- 강아지 선물 말풍선 -->
             <div id="gift-bubble" class="gift-bubble hidden" onclick="claimGift(event)">
+              <div class="bubble-fill"></div>
               <div class="gift-icon-small"></div>
             </div>
             <img id="dog-sprite" src="/ganuto/assets/dog_stand.png" class="dog-pixel">
@@ -132,7 +133,8 @@
                 <button id="theme-blue-btn" onclick="buyTheme('blue', 5000)">가격: 5000G</button>
               </div>
             </div>
-          </div>
+        </div> <!-- shop 끝 -->
+
         <div id="inventory" class="tab-content hidden">
           <div class="shop-categories">
             <div class="category-item">
@@ -148,28 +150,39 @@
             </div>
           </div>
         </div>
-        </div>
 
         <div id="housing" class="tab-content hidden">
           <div class="item">
-            <span>🏙️ 원룸으로 이사</span>
-            <button onclick="moveHouse(1, 2000)">가격: 2000G</button>
+            <span>🛖 반지하 이사</span>
+            <button onclick="moveHouse(1, 1000)">가격: 1000G</button>
           </div>
           <div class="item">
-            <span>🏠 투룸 (빌라)</span>
-            <button onclick="moveHouse(2, 5000)">가격: 5000G</button>
+            <span>🏠 옥탑방 이사</span>
+            <button onclick="moveHouse(2, 3000)">가격: 3000G</button>
+          </div>
+          <div class="item">
+            <span>🏢 원룸 이사</span>
+            <button onclick="moveHouse(3, 8000)">가격: 8000G</button>
+          </div>
+          <div class="item">
+            <span>🏡 투룸 이사</span>
+            <button onclick="moveHouse(4, 20000)">가격: 20000G</button>
           </div>
           <div class="item">
             <span>🏫 고급 오피스텔</span>
-            <button onclick="moveHouse(3, 15000)">가격: 15000G</button>
+            <button onclick="moveHouse(5, 50000)">가격: 50000G</button>
           </div>
           <div class="item">
             <span>🏙️ 도심 아파트</span>
-            <button onclick="moveHouse(4, 50000)">가격: 50000G</button>
+            <button onclick="moveHouse(6, 150000)">가격: 150000G</button>
+          </div>
+          <div class="item">
+            <span>🏘️ 전원 단독주택</span>
+            <button onclick="moveHouse(7, 500000)">가격: 500000G</button>
           </div>
           <div class="item">
             <span>💎 펜트하우스</span>
-            <button onclick="moveHouse(5, 200000)">가격: 200000G</button>
+            <button onclick="moveHouse(8, 2000000)">가격: 2000000G</button>
           </div>
         </div>
       </section>
