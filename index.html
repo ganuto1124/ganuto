@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>가뉴의 자취 일기</title>
-  <script type="module" crossorigin src="/ganuto/assets/index-han4HmKR.js"></script>
-  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-B5gGSSVH.css">
+  <script type="module" crossorigin src="/ganuto/assets/index-BDYhHYuG.js"></script>
+  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-DT8GoHRA.css">
 </head>
 
 <body>
@@ -85,9 +85,32 @@
               <p>🪑 가구</p>
               <span class="empty-msg">준비 중...</span>
             </div>
-            <div class="category-item">
+            <div class="category-item dog-category">
               <p>🎀 강아지용</p>
-              <span class="empty-msg">준비 중...</span>
+              <div class="sub-tabs">
+                <button onclick="showDogSubTab('snacks')">간식</button>
+                <button onclick="showDogSubTab('acc')">악세서리</button>
+              </div>
+              <div id="dog-snacks" class="dog-sub-content">
+                <div class="item">
+                  <span>🍪 개껌 (기분 +20)</span>
+                  <button onclick="buySnack('bone', 200)">가격: 200G</button>
+                </div>
+                <div class="item">
+                  <span>🍗 육포 (기분 +50)</span>
+                  <button onclick="buySnack('jerky', 500)">가격: 500G</button>
+                </div>
+              </div>
+              <div id="dog-acc" class="dog-sub-content hidden">
+                <div class="item">
+                  <span>🎗️ 빨간 리본</span>
+                  <button onclick="buyAccessory('red_ribbon', 1000)">가격: 1000G</button>
+                </div>
+                <div class="item">
+                  <span>👑 금관</span>
+                  <button onclick="buyAccessory('crown', 5000)">가격: 5000G</button>
+                </div>
+              </div>
             </div>
             <div class="category-item">
               <p>🧢 캐릭터용</p>
