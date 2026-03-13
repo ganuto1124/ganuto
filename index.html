@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>가뉴의 자취 일기</title>
-  <script type="module" crossorigin src="/ganuto/assets/index-CMBbmGEU.js"></script>
+  <script type="module" crossorigin src="/ganuto/assets/index-DSWr7I4j.js"></script>
   <link rel="stylesheet" crossorigin href="/ganuto/assets/index-BDRDy0n-.css">
 </head>
 
@@ -57,6 +57,7 @@
         <div class="menu-tabs">
           <button onclick="showTab('upgrades')">알바/스킬</button>
           <button onclick="showTab('shop')">상점</button>
+          <button onclick="showTab('inventory')">인벤토리</button>
           <button onclick="showTab('housing')">이사하기</button>
 
         </div>
@@ -130,6 +131,21 @@
               </div>
             </div>
           </div>
+        <div id="inventory" class="tab-content hidden">
+          <div class="shop-categories">
+            <div class="category-item">
+              <p>🍱 내가 가진 아이템</p>
+              <div class="item">
+                <span>🍪 개껌 (<span id="inv-bone-count">0</span>개)</span>
+                <button onclick="useItem('bone')">사용하기</button>
+              </div>
+              <div class="item">
+                <span>🍗 육포 (<span id="inv-jerky-count">0</span>개)</span>
+                <button onclick="useItem('jerky')">사용하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
 
         <div id="housing" class="tab-content hidden">
