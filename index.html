@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>가뉴의 자취 일기</title>
-  <script type="module" crossorigin src="/ganuto/assets/index-DekJdSfS.js"></script>
-  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-CdFY87xB.css">
+  <script type="module" crossorigin src="/ganuto/assets/index-CE8rTjSz.js"></script>
+  <link rel="stylesheet" crossorigin href="/ganuto/assets/index-DNP7zjDa.css">
 </head>
 
 <body>
@@ -34,6 +34,7 @@
           <p>💰 <span id="gold">0</span> G</p>
           <p>🏠 장소: <span id="location">고시원</span></p>
           <p>🚀 자동 수익: <span id="auto-rate">0</span> G/초</p>
+          <p>❤️ 기분: <span id="mood">100</span>%</p>
         </div>
       </header>
 
@@ -102,17 +103,18 @@
           </div>
         </div>
 
-        <div class="item">
-          <span>🏙️ 원룸으로 이사</span>
-          <button onclick="moveHouse(1, 2000)">가격: 2000G</button>
+        <div id="housing" class="tab-content hidden">
+          <div class="item">
+            <span>🏙️ 원룸으로 이사</span>
+            <button onclick="moveHouse(1, 2000)">가격: 2000G</button>
+          </div>
+          <div class="item">
+            <span>🏠 투룸으로 이사</span>
+            <button onclick="moveHouse(2, 10000)">가격: 10000G</button>
+          </div>
         </div>
-        <div class="item">
-          <span>🏠 투룸으로 이사</span>
-          <button onclick="moveHouse(2, 10000)">가격: 10000G</button>
-        </div>
+      </section>
     </div>
-    </section>
-  </div>
   </div>
 
 </body>
